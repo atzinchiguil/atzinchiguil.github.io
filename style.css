@@ -1,3 +1,6 @@
+/* =========================
+   1) Variables
+   ========================= */
 :root{
   --text:#111827;
   --muted:#4b5563;
@@ -8,6 +11,9 @@
   --max: 980px;
 }
 
+/* =========================
+   2) Base / Reset
+   ========================= */
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 body{
@@ -15,18 +21,25 @@ body{
   background: var(--bg);
   color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  line-height: 1.65;
+  line-height: 1.62;            /* un poco más compacto */
+  font-size: 16px;              /* texto general más chico */
 }
 
 a{ color: var(--link); text-decoration: none; }
 a:hover{ text-decoration: underline; }
 
+/* =========================
+   3) Layout / Container
+   ========================= */
 .container{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 34px 18px;
+  padding: 28px 18px;           /* un poco menos aire arriba/abajo */
 }
 
+/* =========================
+   4) Navbar
+   ========================= */
 .nav{
   position: sticky;
   top: 0;
@@ -69,18 +82,25 @@ a:hover{ text-decoration: underline; }
   background: #eef2ff;
 }
 
+/* =========================
+   5) Typography
+   ========================= */
 h1{
-  font-size: 44px;
-  line-height: 1.1;
-  margin: 14px 0 10px;
-  letter-spacing: -0.4px;
+  font-size: 38px;              /* antes 44 */
+  line-height: 1.12;
+  margin: 10px 0 12px;
+  letter-spacing: -0.3px;
 }
 
 .sub{
   color: var(--muted);
-  margin: 0 0 18px;
+  margin: 0 0 16px;
+  font-size: 15px;              /* un poco más chico */
 }
 
+/* =========================
+   6) Cards / Buttons (si las usas en otras páginas)
+   ========================= */
 .card{
   background: var(--card);
   border: 1px solid var(--line);
@@ -109,14 +129,24 @@ h1{
   border-color:#c7d2fe;
 }
 
+/* =========================
+   7) Portrait photo
+   ========================= */
 .portrait{
-  width: 240px;
+  width: 290px;                 /* más grande */
+  margin-top: 22px;             /* baja la foto */
   border-radius: 18px;
   border: 1px solid var(--line);
   box-shadow: 0 8px 30px rgba(17,24,39,0.08);
+  display: block;
 }
 
+/* =========================
+   8) Responsive
+   ========================= */
 @media (max-width: 720px){
-  h1{ font-size: 36px; }
-  .portrait{ width: 210px; }
+  body{ font-size: 15px; }
+  h1{ font-size: 32px; }
+  .sub{ font-size: 14px; }
+  .portrait{ width: 230px; margin-top: 10px; }
 }
