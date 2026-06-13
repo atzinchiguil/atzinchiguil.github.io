@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atzinchiguil.github.io/sitemap.xml
