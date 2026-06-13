@@ -1,152 +1,204 @@
-/* =========================
-   1) Variables
-   ========================= */
+/* =========================================================
+   Atzin Chiguil — personal site
+   Clean academic style: serif body, geometric-sans headings,
+   gray links with a dark-red hover accent, narrow centered column.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap');
+
+/* ---------- Variables ---------- */
 :root{
-  --text:#111827;
-  --muted:#4b5563;
-  --line:#e5e7eb;
-  --bg:#ffffff;
-  --card:#f9fafb;
-  --link:#1d4ed8;
-  --max: 980px;
+  --ink:#1a1a1a;
+  --muted:#6b6b6b;
+  --soft:#8c8c8c;
+  --line:#e7e7e7;
+  --bg:#fdfdfd;
+  --accent:#a80f0f;     /* dark red hover accent */
+  --max:760px;
+  --serif: Charter, "Iowan Old Style", Georgia, Cambria, "Times New Roman", serif;
+  --sans: "Jost", "Futura", "Century Gothic", system-ui, -apple-system, sans-serif;
 }
 
-/* =========================
-   2) Base / Reset
-   ========================= */
+/* ---------- Base ---------- */
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  line-height: 1.62;            /* un poco más compacto */
-  font-size: 16px;              /* texto general más chico */
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.72;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
-a{ color: var(--link); text-decoration: none; }
-a:hover{ text-decoration: underline; }
+a{ color:var(--accent); text-decoration:none; transition:color .15s ease; }
+a:hover{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
 
-/* =========================
-   3) Layout / Container
-   ========================= */
+strong{ font-weight:600; }
+
+/* ---------- Layout ---------- */
 .container{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 28px 18px;           /* un poco menos aire arriba/abajo */
+  max-width:var(--max);
+  margin:0 auto;
+  padding:44px 24px 40px;
 }
 
-/* =========================
-   4) Navbar
-   ========================= */
+/* ---------- Navbar ---------- */
 .nav{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  position:sticky; top:0; z-index:50;
+  background:rgba(253,253,253,0.88);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid var(--line);
 }
-
 .nav-inner{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 12px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px;
 }
-
 .brand{
-  font-weight: 650;
-  letter-spacing: 0.2px;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:18px;
+  letter-spacing:.3px;
+  color:var(--ink);
 }
-
-.tabs{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
+.tabs{ display:flex; gap:22px; flex-wrap:wrap; }
 .tabs a{
-  color: var(--muted);
-  padding: 8px 10px;
-  border-radius: 999px;
-  font-size: 14px;
+  font-family:var(--sans);
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:.2px;
+  color:var(--muted);
+  padding:2px 0;
+  border-bottom:2px solid transparent;
 }
+.tabs a:hover{ color:var(--ink); text-decoration:none; }
+.tabs a.active{ color:var(--ink); border-bottom-color:var(--accent); }
 
-.tabs a.active{
-  color: var(--text);
-  background: #eef2ff;
-}
-
-/* =========================
-   5) Typography
-   ========================= */
+/* ---------- Typography ---------- */
 h1{
-  font-size: 38px;              /* antes 44 */
-  line-height: 1.12;
-  margin: 10px 0 12px;
-  letter-spacing: -0.3px;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:34px;
+  line-height:1.15;
+  letter-spacing:-.2px;
+  margin:0 0 4px;
 }
+h2{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:21px;
+  letter-spacing:.2px;
+  margin:36px 0 6px;
+  padding-bottom:6px;
+  border-bottom:1px solid var(--line);
+}
+h3{ font-family:var(--sans); font-weight:500; font-size:17px; margin:18px 0 4px; }
+p{ margin:0 0 14px; }
 
-.sub{
-  color: var(--muted);
-  margin: 0 0 16px;
-  font-size: 15px;              /* un poco más chico */
+.role{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:17px;
+  color:var(--muted);
+  margin:0 0 20px;
 }
+.sub{ color:var(--muted); font-size:15px; margin:0 0 18px; }
 
-/* =========================
-   6) Cards / Buttons (si las usas en otras páginas)
-   ========================= */
-.card{
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 16px 16px;
-  margin: 14px 0;
-}
-
-.meta{
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-
-.btnrow a{
-  display:inline-block;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background:#fff;
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-.btnrow a:hover{
-  text-decoration:none;
-  border-color:#c7d2fe;
-}
-
-/* =========================
-   7) Portrait photo
-   ========================= */
+/* ---------- Homepage hero ---------- */
+.intro::after{ content:""; display:block; clear:both; }
 .portrait{
-  width: 290px;                 /* más grande */
-  margin-top: 22px;             /* baja la foto */
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  box-shadow: 0 8px 30px rgba(17,24,39,0.08);
-  display: block;
+  float:right;
+  width:255px;
+  margin:6px 0 18px 30px;
+  border-radius:4px;
+  border:1px solid #dcdcdc;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  display:block;
+}
+.interests{ font-size:15.5px; }
+.interests .label{ font-family:var(--sans); font-weight:500; color:var(--ink); }
+
+.links{
+  font-family:var(--sans);
+  font-size:15px;
+  margin-top:22px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.links a{ color:var(--muted); }
+.links a:hover{ color:var(--accent); text-decoration:none; }
+.links .dot{ color:var(--line); margin:0 6px; }
+
+/* ---------- Publication lists ---------- */
+.pubs{ list-style:none; margin:6px 0 0; padding:0; }
+.pubs > li{
+  margin:0 0 22px;
+  padding-left:16px;
+  border-left:2px solid var(--line);
+}
+.pubs .title{ font-weight:600; }
+.venue{ color:var(--muted); font-style:italic; }
+.status{ color:var(--soft); font-style:italic; font-size:14.5px; }
+
+.paperlinks{
+  font-family:var(--sans);
+  font-size:12.5px;
+  letter-spacing:.4px;
+  margin-top:5px;
+}
+.paperlinks a{ color:var(--muted); margin-right:12px; text-transform:uppercase; }
+.paperlinks a:hover{ color:var(--accent); text-decoration:none; }
+
+/* ---------- Cards (contact / cv) ---------- */
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:18px 20px;
+  margin:16px 0;
+}
+.card p{ margin:0 0 10px; }
+.card p:last-child{ margin-bottom:0; }
+.meta{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  font-size:11.5px;
+  color:var(--soft);
+  margin:0 0 2px;
 }
 
-/* =========================
-   8) Responsive
-   ========================= */
-@media (max-width: 720px){
-  body{ font-size: 15px; }
-  h1{ font-size: 32px; }
-  .sub{ font-size: 14px; }
-  .portrait{ width: 230px; margin-top: 10px; }
+/* ---------- Footer ---------- */
+.site-footer{
+  border-top:1px solid var(--line);
+  margin-top:8px;
+}
+.footer-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:26px 24px 44px;
+}
+.foot-links{
+  font-family:var(--sans);
+  font-size:14px;
+  display:flex; gap:20px; flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.foot-links a{ color:var(--muted); }
+.foot-links a:hover{ color:var(--accent); text-decoration:none; }
+.foot-copy{ color:var(--soft); font-size:13px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width:640px){
+  body{ font-size:16px; }
+  h1{ font-size:28px; }
+  .container{ padding-top:32px; }
+  .nav-inner{ flex-direction:column; align-items:flex-start; gap:8px; }
+  .tabs{ gap:16px; }
+  .portrait{ float:none; width:200px; margin:0 0 18px; }
 }
