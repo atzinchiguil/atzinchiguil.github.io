@@ -151,7 +151,7 @@ p{ margin:0 0 14px; }
   letter-spacing:.4px;
   margin-top:5px;
 }
-.paperlinks a{ color:var(--muted); margin-right:12px; text-transform:uppercase; }
+.paperlinks a{ color:var(--muted); margin-right:12px; word-break:break-all; }
 .paperlinks a:hover{ color:var(--accent); text-decoration:none; }
 
 /* ---------- Cards (contact / cv) ---------- */
